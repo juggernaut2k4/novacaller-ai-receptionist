@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: novacaller-ai-receptionist
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VAPI_WEBHOOK_SECRET
+        value: aireceptionist_demo_secret_2026
+      - key: PORT
+        value: 10000
