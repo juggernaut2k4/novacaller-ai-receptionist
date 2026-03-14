@@ -1,0 +1,155 @@
+/* ── FONTS ─────────────────────────────────────────────────────────────────── */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── DESIGN TOKENS ──────────────────────────────────────────────────────────── */
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+}
+
+/* ── LIGHT MODE ──────────────────────────────────────────────────────────────── */
+:root, [data-theme="light"] {
+  --background: 47 33% 96%;        /* warm off-white */
+  --foreground: 35 14% 14%;        /* TEXT #28251D */
+
+  --card: 40 30% 98%;
+  --card-foreground: 35 14% 14%;
+
+  --popover: 40 30% 98%;
+  --popover-foreground: 35 14% 14%;
+
+  --primary: 183 98% 22%;          /* TEAL #01696F */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 183 20% 93%;
+  --secondary-foreground: 183 60% 20%;
+
+  --muted: 40 15% 92%;
+  --muted-foreground: 35 8% 48%;   /* #7A7974 */
+
+  --accent: 183 60% 90%;
+  --accent-foreground: 183 98% 18%;
+
+  --destructive: 320 62% 40%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 100 56% 30%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 25 73% 35%;
+  --warning-foreground: 0 0% 100%;
+
+  --border: 40 15% 84%;
+  --input: 40 15% 84%;
+  --ring: 183 98% 22%;
+
+  --radius: 0.5rem;
+
+  --sidebar-background: 183 30% 12%;
+  --sidebar-foreground: 183 20% 88%;
+  --sidebar-border: 183 30% 18%;
+  --sidebar-accent: 183 40% 20%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-primary: 183 98% 55%;
+  --sidebar-primary-foreground: 183 98% 12%;
+  --sidebar-ring: 183 98% 45%;
+}
+
+/* ── DARK MODE ────────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --background: 30 8% 9%;
+  --foreground: 40 10% 80%;
+
+  --card: 30 8% 11%;
+  --card-foreground: 40 10% 80%;
+
+  --popover: 30 8% 11%;
+  --popover-foreground: 40 10% 80%;
+
+  --primary: 183 60% 52%;
+  --primary-foreground: 183 98% 8%;
+
+  --secondary: 183 20% 16%;
+  --secondary-foreground: 183 60% 80%;
+
+  --muted: 30 8% 16%;
+  --muted-foreground: 40 8% 50%;
+
+  --accent: 183 30% 18%;
+  --accent-foreground: 183 60% 80%;
+
+  --destructive: 320 50% 55%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 100 45% 45%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 25 65% 55%;
+  --warning-foreground: 0 0% 10%;
+
+  --border: 30 8% 18%;
+  --input: 30 8% 18%;
+  --ring: 183 60% 52%;
+
+  --sidebar-background: 30 8% 7%;
+  --sidebar-foreground: 183 20% 82%;
+  --sidebar-border: 30 8% 12%;
+  --sidebar-accent: 183 30% 14%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-primary: 183 60% 52%;
+  --sidebar-primary-foreground: 183 98% 8%;
+  --sidebar-ring: 183 60% 45%;
+}
+
+/* ── BASE ────────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Satoshi', system-ui, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ── SENTIMENT BADGES ────────────────────────────────────────────────────────── */
+.sentiment-positive { @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300; }
+.sentiment-neutral  { @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300; }
+.sentiment-negative { @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300; }
+.sentiment-urgent   { @apply bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300; }
+
+/* ── STATUS DOTS ─────────────────────────────────────────────────────────────── */
+.status-active    { @apply bg-green-500; }
+.status-onboarding { @apply bg-yellow-500; }
+.status-suspended { @apply bg-red-500; }
+
+/* ── SCROLLBAR ────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+
+/* ── SIDEBAR WIDTH ───────────────────────────────────────────────────────────── */
+:root { --sidebar-width: 240px; }
